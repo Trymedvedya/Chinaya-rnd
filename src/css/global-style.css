@@ -95,7 +95,7 @@ flex-direction: row;
 
 }
 nav.top-nav{
-    margin-left: calc(25px + (250 - 10) * ((100vw - 1000px) / (1920 - 500)));;
+    margin-left: calc(25px + (250 - 10) * ((100vw - 1000px) / (1920 - 500)));
 }
 
 nav.top-nav ul li a{
