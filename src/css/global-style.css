@@ -52,7 +52,7 @@ h1.reda:hover{
 }
 div.logo img{
     width: 30.76px;
-    margin-left: 10px;
+    padding-left: 10px;
 }
 div.logo h3{
 font-family:'Open Sans', 'Helvetica Neue', sans-serif;
@@ -82,7 +82,7 @@ div.logo:hover{
 nav.top-nav ul li{
 font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 
-margin-left: 20px;
+margin-left: 40px;
 letter-spacing: 1px;
 font-size: 29px;
 }
