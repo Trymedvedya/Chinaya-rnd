@@ -1,0 +1,53 @@
+@font-face {
+    font-family: Ubuntu; /* Гарнитура шрифта */
+    src: url(/src/fonts/Ubuntu-Medium.ttf); /* Для IE5-8 */
+    src: local(Ubuntu), url(/src/fonts/Ubuntu-Medium.ttf); /* Для остальных браузеров */
+   }
+   @font-face {
+    font-family: Ubuntu-reg; /* Гарнитура шрифта */
+    src: url(/src/fonts/Ubuntu-Regular.ttf); /* Для IE5-8 */
+    src: local(Ubuntu-reg), url(/src/fonts/Ubuntu-Regular.ttf); /* Для остальных браузеров */
+   }
+body{
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.sv{
+    overflow: hidden;
+    margin-top: 90px;
+    width:803px ;
+    height:592px;
+    background-image: url(/src/images-menu/pat.png);
+    border-radius: 12px;
+}
+div.sv h1{
+    font-family: Ubuntu;
+    letter-spacing: 4px;
+    font-size: 48px;
+    color: white;
+    margin-left: 50px;
+}
+span{
+    font-size: 36px;
+}
+
+a.inst{
+    color: white;
+    -webkit-transition: all 0.5s ease-in-out;
+}
+a.inst:hover{
+    color: red;
+}
+div.map{
+    display: flex;
+    flex-direction: row;
+}
+iframe{
+    margin-left: 20px;
+    width: 450px;
+    height: 250px;
+}
