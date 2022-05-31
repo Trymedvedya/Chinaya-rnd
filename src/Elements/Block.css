@@ -4,7 +4,8 @@
     height:444px;
     display: flex;
     flex-direction: row;
-    margin-left: 20px; 
+    margin-left: 10px; 
+    margin-right: 10px;
  border-radius: 12px;
  margin-top: 20px;
  -webkit-transition: all 0.5s ease-in-out;
