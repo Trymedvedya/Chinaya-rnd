@@ -50,7 +50,7 @@ function Navigation() {
 
 
 const catsandteas  = async(categoryName)=>{
-    fetch(`http://localhost:6969/v1/categories/tea?category=${categoryName}`)
+    fetch(`http://95.31.254.175:83/v1/categories/tea?category=${categoryName}`)
     .then(res => res.json())
     .then(
         (result) => {

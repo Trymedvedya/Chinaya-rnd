@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 function CatalogPosuda() {
     const [categoryData, setCategoryData] = useState([]);
     const something = async () => {
-        fetch("http://localhost:6969/v1/categories/dishes")
+        fetch("http://95.31.254.175:83/v1/categories/dishes")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -32,8 +32,8 @@ function CatalogPosuda() {
 }
 
 //функции передачи ссылок в рендеры каталога с чаями и посудой
-function catalogChaiUrlGenerator(){ return("http://localhost:6969/v1/categories/tea")};
-function catalogDishesUrlGenerator(){ return("http://localhost:6969/v1/categories/dishes" )};
+function catalogChaiUrlGenerator(){ return("http://95.31.254.175:83/v1/categories/tea")};
+function catalogDishesUrlGenerator(){ return("http://95.31.254.175:83/v1/categories/dishes" )};
 
 //функция рендера страницы связь
 function renderSvyaz() {
