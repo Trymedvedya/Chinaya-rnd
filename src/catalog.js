@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 function CatalogPosuda() {
-
     const [categoryData, setCategoryData] = useState([]);
     const something = async () => {
         fetch("http://localhost:6969/v1/categories/dishes")
@@ -18,13 +17,9 @@ function CatalogPosuda() {
                     setCategoryData((newResult));
                 })
     };
-
     useEffect(() => {
         something();
-
     }, []);
-
-
     return (
         <main>
         <div class="block-one">
@@ -32,17 +27,15 @@ function CatalogPosuda() {
             <Block name={data.categoryName} surs={`data:image/png;base64, ${data.categoryImage}`} key={data.CategoryId} />
             ) }
         </div>
-        
-          
-
-
     </main>
     );
 }
-function catalogChaiUrlGenerator(){ return("http://localhost:6969/v1/categories/tea"  )};
-function catalogDishesUrlGenerator(){ return("http://localhost:6969/v1/categories/dishes"   )};
 
+//функции передачи ссылок в рендеры каталога с чаями и посудой
+function catalogChaiUrlGenerator(){ return("http://localhost:6969/v1/categories/tea")};
+function catalogDishesUrlGenerator(){ return("http://localhost:6969/v1/categories/dishes" )};
 
+//функция рендера страницы связь
 function renderSvyaz() {
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
@@ -51,18 +44,20 @@ function renderSvyaz() {
 
     );
 }
+//функция рендера каталога с посудой
 function renderCatalogPosuda() {
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
 
         <Catalog urlGenerator={catalogDishesUrlGenerator} />
-
+        
     );
 }
+//функция рендера каталога с чаями
 function renderCatalogChai() {
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
-
+        
         <Catalog urlGenerator={catalogChaiUrlGenerator} />
 
     );

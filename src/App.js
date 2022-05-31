@@ -6,7 +6,7 @@ import              './css/sv-style.css'
 import              { renderCatalogPosuda, renderCatalogChai, renderSvyaz } from './catalog';
 
 
-
+//Функция, собирающая страницу связи
 function Svyaz() {
     return (
         <main>
@@ -21,7 +21,7 @@ function Svyaz() {
         </main>
     );
 }
-
+//Функция, собирающая логотип в хэдере
 function Logo() {
     return (
         <div onClick={renderCatalogChai} class="logo">
@@ -30,6 +30,7 @@ function Logo() {
         </div>
     );
 }
+//Функция, которая собирает навигацию в хэдере
 function Navigation() {
     return (
         <ul>
@@ -58,7 +59,8 @@ const catsandteas  = async(categoryName)=>{
         })
   };
   
-
+  
+//Основная функция для сбора страниц с категориями и чаями отдельных категорий
 
 function Catalog(props) {
     //const Client = new Client();  src={`data:image/jpeg;base64,${image}`} <img alt='Hui'  src={`data:image/png;base64, ${image}`}></img> 

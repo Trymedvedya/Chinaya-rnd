@@ -65,7 +65,7 @@ div.logo{
     display: flex;
     flex-direction: row;
     -webkit-transition: all 0.3s ease-in-out;
-
+    margin-right: 22px;
     width: 170px;
     border-radius: 12px;
     justify-self: center;
@@ -82,7 +82,8 @@ div.logo:hover{
 nav.top-nav ul li{
 font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 
-margin-left: 65px;
+margin-left: 55px;
+margin-right: 20px;
 letter-spacing: 1px;
 font-size: 29px;
 }
