@@ -82,7 +82,6 @@ function Products(props){
 
 
 function Catalog(props) {
-    //const Client = new Client();  src={`data:image/jpeg;base64,${image}`} <img alt='Hui'  src={`data:image/png;base64, ${image}`}></img> 
     const [categoryData, setCategoryData] = useState([]);
     const something = async () => {
         console.log(props.urlGenerator);

@@ -12,4 +12,3 @@ const Block = function (props) {
     )
 }
 export default Block
-//style={{backgroundImage:`url(${props.surs})`}}

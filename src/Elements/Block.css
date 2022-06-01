@@ -44,6 +44,7 @@ padding-bottom: 5px;
     cursor: pointer;
 }
 #cumcum{
+    z-index: 0;
     font-size: medium;
     margin-top: 40px;
     color: white;
