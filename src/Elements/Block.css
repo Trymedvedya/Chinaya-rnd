@@ -43,10 +43,3 @@ padding-bottom: 5px;
 #second:hover{
     cursor: pointer;
 }
-#cumcum{
-    z-index: 0;
-    font-size: medium;
-    margin-top: 40px;
-    color: white;
-    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-}
