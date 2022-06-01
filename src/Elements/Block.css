@@ -9,6 +9,7 @@
  border-radius: 12px;
  margin-top: 20px;
  -webkit-transition: all 0.5s ease-in-out;
+ background-color: black;
 
 }
 img{
@@ -17,11 +18,11 @@ img{
     height: 100%;
     z-index: 1;
 }
+
 #second{
    
 border-radius: 8px;
 position: absolute;
-z-index: 0;
 color: rgb(255, 255, 255);
 font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 font-size: 30px;
@@ -41,4 +42,10 @@ padding-bottom: 5px;
 }
 #second:hover{
     cursor: pointer;
+}
+#cumcum{
+    font-size: medium;
+    margin-top: 40px;
+    color: white;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
