@@ -1,7 +1,7 @@
 import Block from './Elements/Block';
 import ReactDOM from 'react-dom/client';
 import React from "react";
-import { Catalog, Svyaz } from './App';
+import { Catalog, Svyaz, Products } from './App';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
@@ -34,7 +34,7 @@ function CatalogPosuda() {
 //функции передачи ссылок в рендеры каталога с чаями и посудой
 function catalogChaiUrlGenerator(){ return("http://95.31.254.175:83/v1/categories/tea")};
 function catalogDishesUrlGenerator(){ return("http://95.31.254.175:83/v1/categories/dishes" )};
-
+function productUrlGenerator(categoryId, catalogType){return ("http://95.31.254.175:83/v1/products/"+catalogType+"?category="+categoryId)};
 //функция рендера страницы связь
 function renderSvyaz() {
     const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -49,7 +49,7 @@ function renderCatalogPosuda() {
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
 
-        <Catalog urlGenerator={catalogDishesUrlGenerator} />
+        <Catalog catalogType="dishes" urlGenerator={catalogDishesUrlGenerator} />
         
     );
 }
@@ -58,8 +58,17 @@ function renderCatalogChai() {
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
         
-        <Catalog urlGenerator={catalogChaiUrlGenerator} />
+        <Catalog catalogType="tea" urlGenerator={catalogChaiUrlGenerator} />
 
     );
 }
-export { renderCatalogPosuda, renderCatalogChai, renderSvyaz }
+function renderProductsCatalog(categoryId, catalogType) {
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    console.log("rendering prod")
+    root.render(
+        
+        <Products urlGenerator={()=>productUrlGenerator(categoryId, catalogType)} />
+
+    );
+}
+export { renderCatalogPosuda, renderCatalogChai, renderSvyaz, renderProductsCatalog}

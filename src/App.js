@@ -3,7 +3,7 @@ import              Block from './Elements/Block';
 import              './App.css';
 import              './css/global-style.css';
 import              './css/sv-style.css'
-import              { renderCatalogPosuda, renderCatalogChai, renderSvyaz } from './catalog';
+import              { renderCatalogPosuda, renderCatalogChai, renderSvyaz, renderProductsCatalog } from './catalog';
 
 
 //Функция, собирающая страницу связи
@@ -49,18 +49,37 @@ function Navigation() {
 }
 
 
-const catsandteas  = async(categoryName)=>{
-    fetch(`http://95.31.254.175:83/v1/categories/tea?category=${categoryName}`)
-    .then(res => res.json())
-    .then(
-        (result) => {
-           let newResult = result;
-            console.log(newResult)
-        })
-  };
-  
-  
 //Основная функция для сбора страниц с категориями и чаями отдельных категорий
+function Products(props){
+    const [productData, setProductData] = useState([]);
+    const notsomething = async () => {
+        console.log(props.urlGenerator);
+        fetch(props.urlGenerator())
+            .then(res => res.json())
+            .then(
+                (result) => {
+                   let newResult = result;
+                    console.log(newResult);
+                    setProductData((newResult));
+                })
+    };
+    useEffect(() => {
+        notsomething();
+    }, []);
+
+     return (
+        <main>
+            <div class="block-one">
+                {productData.map((data) =>
+                <Block name={data.productName} surs={`data:image/png;base64, ${data.productImage}`} key={data.productId} />
+                ) }
+            
+            </div>
+        </main>
+    );
+};
+
+
 
 function Catalog(props) {
     //const Client = new Client();  src={`data:image/jpeg;base64,${image}`} <img alt='Hui'  src={`data:image/png;base64, ${image}`}></img> 
@@ -78,23 +97,19 @@ function Catalog(props) {
     };
 
     useEffect(() => {
+        console.log(props.catalogType)
         something();
-
     }, []);
-
+    
      return (
         <main>
             <div class="block-one">
                 { categoryData.map((data) =>
-                <Block name={data.categoryName} surs={`data:image/png;base64, ${data.categoryImage}`} key={data.CategoryId} />
+                <Block renderer={()=>renderProductsCatalog(data.categoryId, props.catalogType)}   name={data.categoryName} surs={`data:image/png;base64, ${data.categoryImage}`} key={data.categoryId} />
                 ) }
             </div>
-            
-              
-
-
         </main>
     );
 }
 
-export { Catalog, Navigation, Logo, Svyaz }
+export { Catalog, Navigation, Logo, Svyaz, Products }
