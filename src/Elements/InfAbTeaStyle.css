@@ -21,7 +21,7 @@ height: 900px;
 div.banner_img{
     position: relative;
     align-self: flex-start;
-    width: calc(1000px + (250 - 1000) * ((100vw - 200px) / (1920 - 500)));
+    width: calc(813px + (250 - 1000) * ((100vw - 200px) / (1920 - 500)));
     min-width:300px;
     height:auto;
     max-height: 300px;
