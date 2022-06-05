@@ -31,7 +31,7 @@ function Navigation() {
     <header>
     <Link to="/">
           <div  className="logo">
-            <img src="./logo-tea.svg" alt=""></img>
+          <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 357"><defs></defs><rect class="cls-1" x="52.63" y="52.63" width="251.73" height="251.73" transform="translate(-73.94 178.5) rotate(-45)"/></svg>
             <h3 >Чайная</h3>
         </div>
         </Link>

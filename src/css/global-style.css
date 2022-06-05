@@ -50,7 +50,7 @@ h1.reda:hover{
    h1{
     text-decoration: none;
 }
-div.logo img{
+div.logo svg{
     width: 30.76px;
     padding-left: 10px;
 }
@@ -61,6 +61,7 @@ letter-spacing: 1px;
 text-decoration: none;
 
 }
+.cls-1{fill:#ed0000;}
 div.logo{
  
     display: flex;
