@@ -3,8 +3,9 @@ import              Block from './Elements/Block';
 import              './App.css';
 import              './css/global-style.css';
 import              './css/sv-style.css'
-import              { renderProductsCatalog, catalogChaiUrlGenerator,catalogDishesUrlGenerator, productUrlGenerator } from './catalog';
+import              {  catalogChaiUrlGenerator,catalogDishesUrlGenerator} from './catalog';
 import              { BrowserRouter as Router, Route, Link, Routes, useLocation } from "react-router-dom";
+import              InfAbTea from './Elements/InfAbTea';
 
 
 //Функция, собирающая страницу связи
@@ -37,14 +38,14 @@ function Navigation() {
         </Link>
         <nav className='top-nav'>
         <ul>
-            <li>
+            <li className="alter">
                 <h1 className="reda" href="catalog1.html"><Link to="/">чаи</Link></h1>
             </li>
-            <li>
+            <li className="alter">
                <h1 className="reda"> <Link to="/dishes">посуда</Link></h1>
             </li>
 
-            <li>
+            <li className="alter">
                 <h1 className="reda"><Link to="link">связь</Link></h1>
             </li>
         </ul>
@@ -58,6 +59,8 @@ function Navigation() {
            <Route path="/link"      element={<Svyaz/>} ></Route>
            <Route path="/products/dishes"      element={<Products productType="dishes"/>} ></Route>
            <Route path="/products/tea"      element={<Products productType="tea"/>} ></Route>
+           <Route path="/product/dishes"      element={<InformationAbTea productType="dishes"/>} ></Route>
+           <Route path="/product/tea"      element={<InformationAbTea productType="tea"/>} ></Route>
            </Routes>
            </Router>
     );
@@ -66,9 +69,57 @@ function useQuery() {
     const { search } = useLocation();
     return React.useMemo(() => new URLSearchParams(search), [search]);
   }
+const downloadImage = async (productType, categoryId,productId)=>{
+    console.log("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
+    fetch("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
+    //.then(res => res.json())
+}
+  //Основная функция для сбора страниц с информацией о чае
+function InformationAbTea(props){
+    const [data, setProductData] = useState("");
+    const [image, setImage] = useState("");
+    let query = useQuery();
+
+
+    const downloadImage = async (productType, categoryId,productId)=>{
+        console.log("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
+        fetch("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
+        .then(res => res.json())
+        .then(result => 
+            setImage(result))
+        //.then(res => res.json())
+    }
+    const notsomething = async () => {
+        fetch("http://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'))
+            .then(res => res.json())
+            .then((result) => 
+            {setProductData((result));             console.log(result)})
+               
+    };
+    useEffect(() => {
+        setImage(downloadImage(props.productType, query.get('category'),query.get('product')));
+        console.log(data);
+        notsomething();
+    }, []);
+
+     return (
+        <main>
+            <div className="block-one">
+            
+                <InfAbTea sourceInfImg={image} mainTeaName={data.name} categoryOfTea={data.subCategoryName} textAbTea={data.description} teaRoast={data.roast} 
+                tastes={[data.tasteTags]}  region={data.province} effect={data.effect} 
+                temperatureTea={data.startTemperature} stepTemperatureTea={data.temperatureStep} dishes={data.dishes} key={data.productId}/>
+               
+                
+            
+            </div>
+        </main>
+    );
+};
+//
 //Основная функция для сбора страниц с категориями и чаями отдельных категорий
 function Products(props){
-    const [productData, setProductData] = useState([]);
+    const [productsData, setProductsData] = useState([]);
     let query = useQuery();
     const notsomething = async () => {
         console.log("china-ya.ru/v1/products/"+props.productType+"?category="+query.get('category'));
@@ -78,7 +129,7 @@ function Products(props){
                 (result) => {
                    let newResult = result;
                     console.log(newResult);
-                    setProductData((newResult));
+                    setProductsData((newResult));
                 })
     };
     useEffect(() => {
@@ -88,8 +139,8 @@ function Products(props){
      return (
         <main>
             <div className="block-one">
-                {productData.map((data) =>
-                <Block name={data.name} surs={`data:image/png;base64, ${data.image}`} key={data.productId} />
+                {productsData.map((data) =>
+               <Link to={`/product/tea?category=${query.get('category')}&product=${data.productId}`}> <Block name={data.name} surs={`data:image/png;base64, ${data.image}`} key={data.productId} /></Link>
                 ) }
             
             </div>
@@ -100,12 +151,9 @@ function Products(props){
 
 
 function  Catalog(props)   {
-    
 
     const [categoryData, setCategoryData] = useState([]);
     const something =  async () => {
-        
-  
         console.log(props.urlGenerator);
         fetch(props.urlGenerator())
         

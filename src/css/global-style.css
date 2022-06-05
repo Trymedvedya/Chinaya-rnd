@@ -86,7 +86,7 @@ div.logo:hover{
     box-shadow: 2px 2px 2px 2px #9c9c9c38;
 }
 
-nav.top-nav ul li{
+nav.top-nav ul li.alter{
 font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 
 margin-left: 20px;
@@ -107,7 +107,7 @@ nav.top-nav{
     margin-left: calc(25px + (250 - 10) * ((100vw - 1000px) / (1920 - 500)));
 }
 
-nav.top-nav ul li a{
+nav.top-nav ul li.arlter a{
    
     color: black;
     text-decoration: none;
