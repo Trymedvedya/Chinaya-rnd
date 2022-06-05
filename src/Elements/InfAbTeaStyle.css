@@ -1,3 +1,4 @@
+
 div.maun{
     display: flex;
 flex-direction: row;
@@ -19,23 +20,25 @@ height: 900px;
 
 
 div.banner_img{
+    display: flex;
     position: relative;
     align-self: flex-start;
     width: calc(813px + (250 - 1000) * ((100vw - 200px) / (1920 - 500)));
-    min-width:300px;
+    min-width:330px;
     height:auto;
-    max-height: 300px;
+    max-height: 330px;
    object-fit:fill;
     overflow: hidden;
     border-radius: 12px;
-    margin-top: 130px;
+    margin-top:30px;
     float: left;
    object-position: 50% 50%;
    box-shadow: 5px 2px 5px 0px  rgb(80, 80, 80);
 }
 
 div.infHeader{
-    margin-left: 2.5%;
+    margin-left: 5%;
+    margin-right: 5%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -50,7 +53,6 @@ div.header{
     margin-left: 5px;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    margin-bottom: 30px;
 
 }
 div.header  h1{
@@ -79,7 +81,6 @@ div.pp{
     align-content: center;
     justify-content: center;
     padding-top: 10px;
-    margin-top: -30px;
     margin-left: 5px;
     padding-left: 5px;
     
@@ -93,6 +94,7 @@ p{
     width: 99%;
 }
 div.particles{
+    justify-items: center;
     display: flex;
     flex-direction:row;
     flex-wrap: wrap;
@@ -102,6 +104,8 @@ div.particles{
     border-radius: 12px;
     padding: 0px 80px 10px 0px;
 margin-top: 20px;
+margin-right: 5%;
+margin-left: 5.5%;
 }
 ul.information{
    
@@ -129,3 +133,19 @@ ul.information li{
     align-items: center;
     box-shadow: 5px 2px 5px 0px  rgba(61, 61, 61, 0.459);
 }
+
+/*
+display: flex;
+    
+align-self: flex-start;
+width: calc(813px + (250 - 1000) * ((100vw - 200px) / (1920 - 500)));
+min-width:300px;
+height:auto;
+max-height: 300px;
+object-fit:fill;
+overflow: hidden;
+border-radius: 12px;
+margin-top: 130px;
+float: left;
+object-position: 50% 50%;
+box-shadow: 5px 2px 5px 0px  rgb(80, 80, 80);*/

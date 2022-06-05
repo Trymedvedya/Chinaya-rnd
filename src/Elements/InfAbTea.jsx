@@ -2,7 +2,9 @@ import React from "react";
 import "./InfAbTeaStyle.css";
 const InfAbTea = function (props) {
     return (
-        <div className="maun">
+
+<div className="maun">
+    
 
             <div className="banner_img">
                 <img src={`data:image/png;base64,${props.sourceInfImg}`} alt=""></img>
@@ -54,7 +56,7 @@ const InfAbTea = function (props) {
                     </ul>
                 </div>
             </div>
-        </div>
+            </div>       
     )
 }
 export default InfAbTea

@@ -103,8 +103,8 @@ function InformationAbTea(props){
     }, []);
 
      return (
-        <main>
-            <div className="block-one">
+        
+     
             
                 <InfAbTea sourceInfImg={image} mainTeaName={data.name} categoryOfTea={data.subCategoryName} textAbTea={data.description} teaRoast={data.roast} 
                 tastes={data.tasteTags}  region={data.province} effect={data.effect} 
@@ -112,8 +112,8 @@ function InformationAbTea(props){
                
                 
             
-            </div>
-        </main>
+
+       
     );
 };
 //

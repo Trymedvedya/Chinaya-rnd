@@ -9,14 +9,7 @@
     src: url(/src/fonts/Ubuntu-Regular.ttf); /* Для IE5-8 */
     src: local(Ubuntu-reg), url(/src/fonts/Ubuntu-Regular.ttf); /* Для остальных браузеров */
    }
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
 
-}
    header{
        justify-self: center;
        background-color: white;

@@ -8,21 +8,17 @@
     src: url(/src/fonts/Ubuntu-Regular.ttf); /* Для IE5-8 */
     src: local(Ubuntu-reg), url(/src/fonts/Ubuntu-Regular.ttf); /* Для остальных браузеров */
    }
-body{
-    margin-bottom: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+  
 
 div.sv{
     overflow: hidden;
+    align-self: center;
     margin-top: 40px;
     width:calc(803 + (250 - 10) * ((100vw - 1000px) / (1920 - 500))); 
     height:calc(803 + (250 - 10) * ((100vw - 1000px) / (1920 - 500)));;
     background-image: url(/src/images-menu/pat.png);
     border-radius: 12px;
+    max-width: 700px;
 }
 div.sv h1{
     font-family: Ubuntu;
