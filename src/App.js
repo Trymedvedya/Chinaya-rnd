@@ -72,11 +72,11 @@ function useQuery() {
 const downloadImage = async (productType, categoryId,productId)=>{
     console.log("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
     fetch("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
-    //.then(res => res.json())
+
 }
   //Основная функция для сбора страниц с информацией о чае
 function InformationAbTea(props){
-    const [data, setProductData] = useState("");
+    const [data, setProductData] = useState({tasteTags:[],dishes:[]});
     const [image, setImage] = useState("");
     let query = useQuery();
 
@@ -107,7 +107,7 @@ function InformationAbTea(props){
             <div className="block-one">
             
                 <InfAbTea sourceInfImg={image} mainTeaName={data.name} categoryOfTea={data.subCategoryName} textAbTea={data.description} teaRoast={data.roast} 
-                tastes={[data.tasteTags]}  region={data.province} effect={data.effect} 
+                tastes={data.tasteTags}  region={data.province} effect={data.effect} 
                 temperatureTea={data.startTemperature} stepTemperatureTea={data.temperatureStep} dishes={data.dishes} key={data.productId}/>
                
                 

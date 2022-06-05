@@ -48,9 +48,9 @@ const InfAbTea = function (props) {
                     </ul>
                     <ul className="information">
                         <caption><h1 className="grey">посуда</h1></caption>
-                        <li><h2>{props.dishes}</h2></li>
-                        <li><h2>{props.dishes}</h2></li>
-                        <li><h2>{props.dishes}</h2></li>
+                        {props.dishes.map((dish)=>
+                            <li><h2>{dish}</h2></li>
+                        )}
                     </ul>
                 </div>
             </div>
