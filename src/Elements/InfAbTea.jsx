@@ -23,7 +23,7 @@ const InfAbTea = function (props) {
 
                     <ul className="information">
                         <caption><h1 className="grey">прожарка</h1></caption>
-                        <li><h2>{props.teaFlame}</h2></li>
+                        <li><h2>{props.teaRoast}</h2></li>
                     </ul>
                     <ul className="information">
                         <caption><h1 className="grey">вкус</h1></caption>

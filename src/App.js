@@ -59,7 +59,6 @@ function Navigation() {
            <Route path="/products/dishes"      element={<Products productType="dishes"/>} ></Route>
            <Route path="/products/tea"      element={<Products productType="tea"/>} ></Route>
            </Routes>
-        
            </Router>
     );
 }
@@ -90,7 +89,7 @@ function Products(props){
         <main>
             <div className="block-one">
                 {productData.map((data) =>
-                <Block name={data.productName} surs={`data:image/png;base64, ${data.productImage}`} key={data.productId} />
+                <Block name={data.name} surs={`data:image/png;base64, ${data.image}`} key={data.productId} />
                 ) }
             
             </div>
