@@ -41,4 +41,4 @@ function renderProductsCatalog(categoryId, catalogType) {
 
     );
 }
-export { renderCatalogPosuda, renderCatalogChai, renderSvyaz, renderProductsCatalog, catalogChaiUrlGenerator, catalogDishesUrlGenerator,productUrlGenerator}
+export { catalogChaiUrlGenerator, catalogDishesUrlGenerator,productUrlGenerator}

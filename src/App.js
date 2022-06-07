@@ -93,8 +93,7 @@ function InformationAbTea(props){
         fetch("http://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'))
             .then(res => res.json())
             .then((result) => 
-            {setProductData((result));             console.log(result)})
-               
+            {setProductData((result)); console.log(result)})
     };
     useEffect(() => {
         setImage(downloadImage(props.productType, query.get('category'),query.get('product')));
@@ -208,7 +207,7 @@ function  CatalogDishes(props)   {
         <main>
             <div className="block-one">
                 { categoryData.map((data) =>
-                <Block   name={data.categoryName} surs={`data:image/png;base64, ${data.categoryImage}`} key={data.categoryId} />
+               <Link to={`/products/dishes?category=${data.categoryId}`}> <Block   name={data.categoryName} surs={`data:image/png;base64, ${data.categoryImage}`} key={data.categoryId} /></Link>
                 ) }
             </div>
         </main>
