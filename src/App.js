@@ -13,10 +13,10 @@ function Svyaz() {
     return (
         <main>
             <div className="sv">
-                <h1>связь</h1>
+                <h1>контакты</h1>
                 <h1> <span> telegram: <a href="https://t.me/chinayarnd" className="inst">chinaya_rnd</a></span></h1>
                 <h1> <span> адрес: Московская 12/16 Ростов-на-Дону </span></h1>
-                <h1><span>телефон: 88005553535</span></h1>
+                <h1><span>телефон: 89286178873</span></h1>
                 <div className="map">
                 </div>
             </div>
@@ -46,7 +46,7 @@ function Navigation() {
             </li>
 
             <li className="alter">
-                <h1 className="reda"><Link to="link">связь</Link></h1>
+                <h1 className="reda"><Link to="link">контакты</Link></h1>
             </li>
         </ul>
         </nav>
