@@ -139,7 +139,7 @@ function Products(props){
         <main>
             <div className="block-one">
                 {productsData.map((data) =>
-               <Link to={`/product/tea?category=${query.get('category')}&product=${data.productId}`}> <Block name={data.name} surs={`data:image/png;base64, ${data.image}`} key={data.productId} /></Link>
+               <Link to={`/product/${productType}?category=${query.get('category')}&product=${data.productId}`}> <Block name={data.name} surs={`data:image/png;base64, ${data.image}`} key={data.productId} /></Link>
                 ) }
             
             </div>
