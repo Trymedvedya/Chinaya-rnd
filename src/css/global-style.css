@@ -71,9 +71,10 @@ margin-left: 11.29px;
 a{
     text-decoration: none;
 }
-a:visited{
+a:visited, a:active,a:link{
     color:black;
 }
+
 div.logo:hover{
     cursor: pointer;
     box-shadow: 2px 2px 2px 2px #9c9c9c38;
