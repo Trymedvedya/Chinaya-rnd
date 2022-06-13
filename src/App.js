@@ -105,7 +105,7 @@ function InformationAbDishes(props){
     }, []);
 
      return (
-                <InfAbDishes sourceInfImg={image} mainDishesName={data.name} categoryOfDishes={data.subCategoryName} textAbDishes={data.description} key={data.productId}/>
+                <InfAbDishes dishesMaterial={data.material} sourceInfImg={image} mainDishesName={data.name} categoryOfDishes={data.subCategoryName}  textAbDishes={data.description} key={data.productId}/>
     );
 };
   //Основная функция для сбора страниц с информацией о чае
