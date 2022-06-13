@@ -120,19 +120,3 @@ div.block-one{
     z-index: 0;
 }
 
-
-
-
- div.one-kartinka, div.two-kartinka,div.three-kartinka,div.four-kartinka,
- div.five-kartinka,div.six-kartinka,div.seven-kartinka,div.eight-kartinka
-{
--webkit-transition: all 0.3s ease-in-out;
-border-radius: 12px;
-}
- div.one-kartinka:hover, div.two-kartinka:hover,div.three-kartinka:hover,div.four-kartinka:hover,
-div.five-kartinka:hover,div.six-kartinka:hover,div.seven-kartinka:hover,div.eight-kartinka:hover{
-    box-shadow: 4px 6px 6px 4px rgba(0, 0, 0, 0.466);
-    
-}
-
-

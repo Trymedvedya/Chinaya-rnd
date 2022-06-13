@@ -10,13 +10,7 @@ import {Navigation} from "./App"
 
 export const root = ReactDOM.createRoot(document.getElementById('root'));
 
-
-
 root.render(
     <Navigation/>
 );
-
-
-
-
 reportWebVitals();

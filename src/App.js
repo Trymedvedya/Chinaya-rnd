@@ -3,13 +3,18 @@ import              Block from './Elements/Block';
 import              './App.css';
 import              './css/global-style.css';
 import              './css/sv-style.css'
-import              {  catalogChaiUrlGenerator,catalogDishesUrlGenerator} from './catalog';
 import              { BrowserRouter as Router, Route, Link, Routes, useLocation } from "react-router-dom";
 import              InfAbTea from './Elements/InfAbTea';
+import              InfAbDishes from './Elements/InfAbDishes';
+
+
+function catalogChaiUrlGenerator(){ return("http://95.31.254.175:83/v1/categories/tea")};
+function catalogDishesUrlGenerator(){ return("http://95.31.254.175:83/v1/categories/dishes" )};
 
 
 //Функция, собирающая страницу связи
 function Svyaz() {
+
     return (
         <main>
             <div className="sv">
@@ -17,8 +22,8 @@ function Svyaz() {
                 <h1> <span> telegram: <a href="https://t.me/chinayarnd" className="inst">chinaya_rnd</a></span></h1>
                 <h1> <span> адрес: Московская 12/16 Ростов-на-Дону </span></h1>
                 <h1><span>телефон: 89286178873</span></h1>
-                <div className="map">
-                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d201.42505839398223!2d39.701529590758966!3d47.215765333874955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3b5f21074a08687c!2z0KfQsNC50L3QsNGP!5e0!3m2!1sru!2sru!4v1655127696577!5m2!1sru!2sru" 
+                 allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </main>
     );
@@ -59,7 +64,7 @@ function Navigation() {
            <Route path="/link"      element={<Svyaz/>} ></Route>
            <Route path="/products/dishes"      element={<Products productType="dishes"/>} ></Route>
            <Route path="/products/tea"      element={<Products productType="tea"/>} ></Route>
-           <Route path="/product/dishes"      element={<InformationAbTea productType="dishes"/>} ></Route>
+           <Route path="/product/dishes"      element={<InformationAbDishes productType="dishes"/>} ></Route>
            <Route path="/product/tea"      element={<InformationAbTea productType="tea"/>} ></Route>
            </Routes>
            </Router>
@@ -69,11 +74,40 @@ function useQuery() {
     const { search } = useLocation();
     return React.useMemo(() => new URLSearchParams(search), [search]);
   }
-const downloadImage = async (productType, categoryId,productId)=>{
-    console.log("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
-    fetch("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
 
-}
+
+//основная функция для сбора страниц с информацией о посуде
+function InformationAbDishes(props){
+    const [data, setProductData] = useState({tasteTags:[],dishes:[]});
+    const [image, setImage] = useState("");
+    let query = useQuery();
+
+
+    const downloadImage = async (productType, categoryId,productId)=>{
+        console.log("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId);
+        fetch("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
+        .then(res => res.json())
+        .then(result => 
+            setImage(result))
+    }
+    const InfAbDishesSomething = async () => {
+        console.log("http://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'));
+        fetch("http://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'))
+            .then(res => res.json())
+            .then((result) => 
+            {setProductData((result)); console.log(result)});
+    };
+    useEffect(() => {
+        setImage(downloadImage(props.productType, query.get('category'),query.get('product')));
+        InfAbDishesSomething();
+        console.log(data);
+        
+    }, []);
+
+     return (
+                <InfAbDishes sourceInfImg={image} mainDishesName={data.name} categoryOfDishes={data.subCategoryName} textAbDishes={data.description} key={data.productId}/>
+    );
+};
   //Основная функция для сбора страниц с информацией о чае
 function InformationAbTea(props){
     const [data, setProductData] = useState({tasteTags:[],dishes:[]});
@@ -87,9 +121,8 @@ function InformationAbTea(props){
         .then(res => res.json())
         .then(result => 
             setImage(result))
-        //.then(res => res.json())
     }
-    const notsomething = async () => {
+    const InfAbTeaSomething = async () => {
         fetch("http://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'))
             .then(res => res.json())
             .then((result) => 
@@ -98,24 +131,14 @@ function InformationAbTea(props){
     useEffect(() => {
         setImage(downloadImage(props.productType, query.get('category'),query.get('product')));
         console.log(data);
-        notsomething();
+        InfAbTeaSomething();
     }, []);
-
      return (
-        
-     
-            
                 <InfAbTea sourceInfImg={image} mainTeaName={data.name} categoryOfTea={data.subCategoryName} textAbTea={data.description} teaRoast={data.roast} 
                 tastes={data.tasteTags}  region={data.province} effect={data.effect} 
                 temperatureTea={data.startTemperature} stepTemperatureTea={data.temperatureStep} dishes={data.dishes} key={data.productId}/>
-               
-                
-            
-
-       
     );
 };
-//
 //Основная функция для сбора страниц с категориями и чаями отдельных категорий
 function Products(props){
     const [productsData, setProductsData] = useState([]);
