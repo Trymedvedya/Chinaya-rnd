@@ -11,7 +11,11 @@ import              InfAbDishes from './Elements/InfAbDishes';
 function catalogChaiUrlGenerator(){ return("http://95.31.254.175:83/v1/categories/tea")};
 function catalogDishesUrlGenerator(){ return("http://95.31.254.175:83/v1/categories/dishes" )};
 
-
+function MainPage(){
+return(
+    <div></div>
+)
+};
 //Функция, собирающая страницу связи
 function Svyaz() {
 
@@ -84,15 +88,15 @@ function InformationAbDishes(props){
 
 
     const downloadImage = async (productType, categoryId,productId)=>{
-        console.log("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId);
-        fetch("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
+      
+        fetch("https://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
         .then(res => res.json())
         .then(result => 
             setImage(result))
     }
     const InfAbDishesSomething = async () => {
-        console.log("http://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'));
-        fetch("http://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'))
+        
+        fetch("https://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'))
             .then(res => res.json())
             .then((result) => 
             {setProductData((result)); console.log(result)});
@@ -116,14 +120,14 @@ function InformationAbTea(props){
 
 
     const downloadImage = async (productType, categoryId,productId)=>{
-        console.log("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
-        fetch("http://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
+      
+        fetch("https://china-ya.ru/v1/product/image/"+productType+"?category="+categoryId+"&product="+productId)
         .then(res => res.json())
         .then(result => 
             setImage(result))
     }
     const InfAbTeaSomething = async () => {
-        fetch("http://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'))
+        fetch("https://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'))
             .then(res => res.json())
             .then((result) => 
             {setProductData((result)); console.log(result)})
@@ -144,8 +148,8 @@ function Products(props){
     const [productsData, setProductsData] = useState([]);
     let query = useQuery();
     const notsomething = async () => {
-        console.log("china-ya.ru/v1/products/"+props.productType+"?category="+query.get('category'));
-        fetch("http://china-ya.ru/v1/products/"+props.productType+"?category="+query.get('category'))
+       
+        fetch("https://china-ya.ru/v1/products/"+props.productType+"?category="+query.get('category'))
             .then(res => res.json())
             .then(
                 (result) => {
