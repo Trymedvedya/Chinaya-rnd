@@ -8,8 +8,8 @@ import              InfAbTea from './Elements/InfAbTea';
 import              InfAbDishes from './Elements/InfAbDishes';
 
 
-function catalogChaiUrlGenerator(){ return("http://95.31.254.175:83/v1/categories/tea")};
-function catalogDishesUrlGenerator(){ return("http://95.31.254.175:83/v1/categories/dishes" )};
+function catalogChaiUrlGenerator(){ return("https://china-ya.ru/v1/categories/tea")};
+function catalogDishesUrlGenerator(){ return("https://china-ya.ru/v1/categories/dishes" )};
 
 function MainPage(){
 return(
