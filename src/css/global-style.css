@@ -180,7 +180,7 @@ div.block-one{
     font-size: 95%;
     word-break: break-all;
    
-  width:   calc(600px + (600 - 5) * ((100vw - 1050px) / (1920 - 500)));
+
 
 }
 .abUsDiv{

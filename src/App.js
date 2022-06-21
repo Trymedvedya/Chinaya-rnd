@@ -12,6 +12,7 @@ function catalogChaiUrlGenerator(){ return("https://china-ya.ru/v1/categories/te
 function catalogDishesUrlGenerator(){ return("https://china-ya.ru/v1/categories/dishes" )};
 
 function MainPage(){
+    const [state, stateData] = useState();
     onsubmit = event =>{
         event.preventDefault()
         
