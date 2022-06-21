@@ -11,6 +11,7 @@
    }
 
    header{
+    align-self: center;
        justify-self: center;
        background-color: white;
        top:0px;
@@ -112,6 +113,7 @@ main{
     flex-direction: column;
     margin-bottom: 35px;
     flex-wrap: wrap;
+   align-items: center;
 }
 div.block-one{
     display: flex;
@@ -130,7 +132,8 @@ div.block-one{
     flex-direction: row;
     margin-bottom: 35px;
     flex-wrap: wrap;
-    width: 730px;
+    width: calc(730px + (730 - 5) * ((100vw - 1070px) / (1920 - 500)));
+    max-width: 730px;
     align-self: center;
     margin: 0 auto;
 }
@@ -141,7 +144,7 @@ div.block-one{
 .big-banner{
     background-image: url(/src/images-menu/shu.png);
 
-    width: calc(730px + (730 - 200) * ((100vw - 1000px) / (1920 - 500)));
+    width: calc(730px + (730 - 5) * ((100vw - 1070px) / (1920 - 500)));
     max-width: 730px;
     height: 204px;
     display: flex;
@@ -164,21 +167,26 @@ div.block-one{
     flex-direction: column;
     align-items: center;
     
-    width: calc(730px + (730 - 200) * ((100vw - 1000px) / (1920 - 500)));
+    width: calc(730px + (730 - 5) * ((100vw - 1070px) / (1920 - 500)));
     max-width: 730px;
-    height: 280px;
+    height: fit-content;
     background-color:rgba(223, 223, 223, 0.774);
     border-radius: 12px;
     align-self: center;
     margin-top: 20px;
-    overflow: hidden;
+
 }
 .abUs{
-
+    font-size: 95%;
     word-break: break-all;
-    margin-left: 10px;
-    margin-right: 10px;
+   
+  width:   calc(600px + (600 - 5) * ((100vw - 1050px) / (1920 - 500)));
 
+}
+.abUsDiv{
+
+padding-left: 10px;
+padding-right: 10px;
 }
 .zag1-main{
     line-height: 5px;
@@ -196,6 +204,7 @@ align-self: center;
     padding-bottom: 20px;
 }
 .blocks{
+    
     align-self: center;
     margin-top: 20px;
     border-radius: 12px;
@@ -204,7 +213,7 @@ align-self: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: calc(730px + (730 - 200) * ((100vw - 1000px) / (1920 - 500)));
+    width: calc(730px + (730 - 5) * ((100vw - 1070px) / (1920 - 500)));
     max-width: 730px;
     flex-wrap: wrap;
 }
@@ -216,7 +225,7 @@ form{
     align-self: center;
     align-items: center;
     
-    width: calc(730px + (730 - 200) * ((100vw - 1000px) / (1920 - 500)));
+    width: calc(730px + (730 - 5) * ((100vw - 1070px) / (1920 - 500)));
     max-width: 730px;
     background-color: rgba(223, 223, 223, 0.774);
     border-radius: 12px;
@@ -241,11 +250,11 @@ form{
 margin-left: 10px;
 }
 .email{
-    margin-left: 40px;
+    margin-left: 20px;
     margin-right: 10px;
 }
 .enput{
-    width: calc(500px + (500 - 200) * ((100vw - 1000px) / (1920 - 500)));
+    width: calc(500px + (500 - 5) * ((100vw - 1050px) / (1920 - 500)));
     max-width: 500px;
     height: 200px;
     word-break: break-all;
