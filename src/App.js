@@ -12,10 +12,73 @@ function catalogChaiUrlGenerator(){ return("https://china-ya.ru/v1/categories/te
 function catalogDishesUrlGenerator(){ return("https://china-ya.ru/v1/categories/dishes" )};
 
 function MainPage(){
+    onsubmit = event =>{
+        event.preventDefault()
+        
+    }
 return(
-    <div></div>
+  <main className='main-page'>
+
+
+<div className="big-banner">
+            <div>
+            
+        <svg className="svg_logo" id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 357"><defs></defs><rect class="cls-1" x="52.63" y="52.63" width="251.73" height="251.73" transform="translate(-73.94 178.5) rotate(-45)"/></svg>
+        </div>
+        <div>
+            <h1>Чайная</h1>
+            </div>
+        </div>
+
+
+
+        <div className="banner-txt">
+            <div className="zag1-main" >
+            <h2 >О нас</h2>
+            </div>
+         <div>
+            <p className="abUs">кууууууууууууууууууууууууурочкикууууууууууууууууууууууууурочкикууууууууууууууууууууууууурочкикууууууууууууууууууууууууурочкикууууууууууууууууууууууууурочки</p>
+            </div>
+        </div> 
+
+
+        <div className="banner-images">
+            <div className="zag2-main">
+            <h2 >Воспоминания</h2>
+            </div>
+            <div className="blocks">
+            <Block surs={require("./images-menu/slide1.jpg")}/>
+            <Block surs={require("./images-menu/slide2.jpg")}/>
+            <Block surs={require("./images-menu/slide3.jpg")}/>
+            <Block surs={require("./images-menu/slide4.jpg")}/>
+            
+            </div>
+            
+        </div>
+        
+
+        <form >
+
+
+            <h2>Напишите нам</h2>
+            <div className="name-mail">
+            <input placeholder='Как вас зовут?' className="name" type="text"></input>
+            <input placeholder='Ваш email' className="email" type="email"></input>
+            </div>
+            <div className="yenput">
+           <textarea placeholder='Ведите ваше сообщение' className="enput" rows="8"></textarea>
+            </div>
+            <button className="button-form" type='sumbit'>Отправить</button>
+            
+
+
+        </form>
+        </main>
+ 
 )
+
 };
+
 //Функция, собирающая страницу связи
 function Svyaz() {
 
@@ -41,14 +104,14 @@ function Navigation() {
     <header>
     <Link to="/">
           <div  className="logo">
-          <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 357"><defs></defs><rect class="cls-1" x="52.63" y="52.63" width="251.73" height="251.73" transform="translate(-73.94 178.5) rotate(-45)"/></svg>
+          <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 357"><defs></defs><rect className="cls-1" x="52.63" y="52.63" width="251.73" height="251.73" transform="translate(-73.94 178.5) rotate(-45)"/></svg>
             <h3 >Чайная</h3>
         </div>
         </Link>
         <nav className='top-nav'>
         <ul>
             <li className="alter">
-                <h1 className="reda" href="catalog1.html"><Link to="/">чаи</Link></h1>
+                <h1 className="reda" href="catalog1.html"><Link to="/tea">чаи</Link></h1>
             </li>
             <li className="alter">
                <h1 className="reda"> <Link to="/dishes">посуда</Link></h1>
@@ -63,13 +126,14 @@ function Navigation() {
       
             <Routes>
                 
-           <Route exact path="/" element={<Catalog catalogType="tea" urlGenerator={catalogChaiUrlGenerator}/>} ></Route>
+           <Route exact path="/tea" element={<Catalog catalogType="tea" urlGenerator={catalogChaiUrlGenerator}/>} ></Route>
            <Route path="/dishes" element={<CatalogDishes catalogType="dishes" urlGenerator={catalogDishesUrlGenerator}/>} ></Route>
            <Route path="/link"      element={<Svyaz/>} ></Route>
            <Route path="/products/dishes"      element={<Products productType="dishes"/>} ></Route>
            <Route path="/products/tea"      element={<Products productType="tea"/>} ></Route>
            <Route path="/product/dishes"      element={<InformationAbDishes productType="dishes"/>} ></Route>
            <Route path="/product/tea"      element={<InformationAbTea productType="tea"/>} ></Route>
+           <Route path="/" element={<MainPage/>}></Route>
            </Routes>
            </Router>
     );
