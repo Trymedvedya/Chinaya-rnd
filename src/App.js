@@ -15,9 +15,8 @@ function catalogDishesUrlGenerator(){ return("https://china-ya.ru/v1/categories/
 
 function MainPage(){
 var headers = new Headers();
-console.log(headers.get('Content-Type'))
 
-console.log(headers.get('Content-Type'))
+
     const [name, setName] = useState("");
     const [tag, setTag] = useState("");
     const [usMessage, setUsMessage] = useState("");
@@ -28,13 +27,13 @@ console.log(headers.get('Content-Type'))
     method: "POST",
     body: JSON.stringify({
 
-      name: name,
-      tag: tag,
-      usMessage: usMessage,
+      feedbackUserName: name,
+      feedbackUserTag: tag,
+      feedbackMessage: usMessage,
     }),
   });
 
-  console.log(newReqest.headers.get('Content-Type'))
+
     let handleSubmit = async (e) => {
         e.preventDefault();
         
