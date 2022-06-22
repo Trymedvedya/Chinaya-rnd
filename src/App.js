@@ -11,12 +11,48 @@ import              InfAbDishes from './Elements/InfAbDishes';
 function catalogChaiUrlGenerator(){ return("https://china-ya.ru/v1/categories/tea")};
 function catalogDishesUrlGenerator(){ return("https://china-ya.ru/v1/categories/dishes" )};
 
+
+
 function MainPage(){
-    const [state, stateData] = useState();
-    onsubmit = event =>{
-        event.preventDefault()
+var headers = new Headers();
+console.log(headers.get('Content-Type'))
+
+console.log(headers.get('Content-Type'))
+    const [name, setName] = useState("");
+    const [tag, setTag] = useState("");
+    const [usMessage, setUsMessage] = useState("");
+ 
+    var newReqest = new Request("https://china-ya.ru/v1/feedback", {
+    headers: {'Content-Type':'application/json', 'Access-Control-Allow-Origin':'*','Host':'china-ya.ru','Origin':'https://china-ya.ru:443'},
+    mode:'cors',
+    method: "POST",
+    body: JSON.stringify({
+
+      name: name,
+      tag: tag,
+      usMessage: usMessage,
+    }),
+  });
+
+  console.log(newReqest.headers.get('Content-Type'))
+    let handleSubmit = async (e) => {
+        e.preventDefault();
         
-    }
+        try {
+            let res = await fetch(newReqest);
+           
+         
+          if (res.status === 200) {
+
+            setName("");
+            setTag("");
+            setUsMessage("");
+          } 
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
 return(
   <main className='main-page'>
 
@@ -62,16 +98,20 @@ return(
         </div>
         
 
-        <form >
+        <form  onSubmit={handleSubmit}  name="form-contacts" id="form-contact" method="post" autoComplete="off" >
 
 
             <h2>Напишите нам</h2>
             <div className="name-mail">
-            <input placeholder='Как к вам обращаться?' className="name" type="text"></input>
-            <input placeholder='Ваш email' className="email" type="email"></input>
+            <input onChange={(e) => setName(e.target.value)} placeholder='Как к вам обращаться?' value={name}  className="name" required="require" name="userName"  type="text"></input>
+            <input onChange={(e) => setTag(e.target.value)} placeholder='Ваш тег в телеграме' value={tag} className="email" required="require" name="userTag"  type="text"></input>
             </div>
             <div className="yenput">
-           <textarea placeholder='Ведите ваше сообщение' className="enput" rows="8"></textarea>
+           <textarea  onChange={(e) => setUsMessage(e.target.value)} placeholder='Ведите ваше сообщение' value={usMessage}  className="enput" required="require" name="userMessage" rows="8"></textarea>
+            </div>
+            <div className="checkbox1">
+                <h4>Я даю согласие на обработку персональных данных</h4>
+            <input  type="checkbox" required="require" ></input> 
             </div>
             <button className="button-form" type='sumbit'>Отправить</button>
             
