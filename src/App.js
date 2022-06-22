@@ -39,8 +39,6 @@ var headers = new Headers();
         
         try {
             let res = await fetch(newReqest);
-           
-         
           if (res.status === 200) {
 
             setName("");
@@ -103,7 +101,7 @@ return(
             <h2>Напишите нам</h2>
             <div className="name-mail">
             <input onChange={(e) => setName(e.target.value)} placeholder='Как к вам обращаться?' value={name}  className="name" required="require" name="userName"  type="text"></input>
-            <input onChange={(e) => setTag(e.target.value)} placeholder='Ваш тег в телеграме' value={tag} className="email" required="require" name="userTag"  type="text"></input>
+            <input onChange={(e) => setTag(e.target.value)} placeholder='Ваш тег в телеграме (@examle)' pattern="^@+([a-z0-9_-]{5,100})$" value={tag} className="email" required="require" name="userTag"  type="text"></input>
             </div>
             <div className="yenput">
            <textarea  onChange={(e) => setUsMessage(e.target.value)} placeholder='Ведите ваше сообщение' value={usMessage}  className="enput" required="require" name="userMessage" rows="8"></textarea>
