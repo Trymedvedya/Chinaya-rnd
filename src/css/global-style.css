@@ -164,6 +164,7 @@ div.block-one{
     -ms-hyphens: auto;
 -webkit-hyphens: auto;
 hyphens: auto;
+hyphenate-limit-chars: 6 3 2;
     flex-wrap: wrap;
     display: flex;
     flex-direction: column;
