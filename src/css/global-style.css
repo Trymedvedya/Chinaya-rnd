@@ -161,7 +161,9 @@ div.block-one{
     padding-right: 20px;
 }
 .banner-txt{
-    
+    -ms-hyphens: auto;
+-webkit-hyphens: auto;
+hyphens: auto;
     flex-wrap: wrap;
     display: flex;
     flex-direction: column;
