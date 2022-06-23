@@ -57,7 +57,7 @@ return(
 <div className="big-banner">
             <div>
             
-        <svg className="svg_logo" id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 357"><defs></defs><rect class="cls-1" x="52.63" y="52.63" width="251.73" height="251.73" transform="translate(-73.94 178.5) rotate(-45)"/></svg>
+        <svg className="svg_logo" id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 357"><defs></defs><rect className="cls-1" x="52.63" y="52.63" width="251.73" height="251.73" transform="translate(-73.94 178.5) rotate(-45)"/></svg>
         </div>
         <div>
             <h1>Чайная</h1>
@@ -71,11 +71,9 @@ return(
             <h2 >О нас</h2>
             </div>
          <div className="abUsDiv">
-            <p className="abUs">Нам 2 годика. Нам 2 годика. Нам 2 годика. Нам 2 годика. Нам 2 годика.Нам 2 годика.Нам 2 годика. Нам 2 годика.
-            Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.
-            Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.
-            Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.
-            Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.Нам 2 годика.</p>
+            <p className="abUs">Своё начало Чайная взяла в маленьком помещении под лестницей. В ассортименте было несколько самых популярных сортов чая,сильно уступающих по качеству текущему ассортименту.
+Самый основной пик популярности нашего заведения приходится на последние три года- мы выросли в крупную организацию, поставляющую чай в Ростов и по России включительно.
+Наличие более 200 сортов позволяет нам беспрерывно в течении года отгружать разные виды чая к ценителям в руки</p>
             </div>
         </div> 
 
@@ -100,11 +98,11 @@ return(
 
             <h2>Напишите нам</h2>
             <div className="name-mail">
-            <input onChange={(e) => setName(e.target.value)} placeholder='Как к вам обращаться?' value={name}  className="name" required="require" name="userName"  type="text"></input>
-            <input onChange={(e) => setTag(e.target.value)} placeholder='Ваш тег в телеграме (@examle)' pattern="^@+([a-z0-9_-]{5,100})$" value={tag} className="email" required="require" name="userTag"  type="text"></input>
+            <input onChange={(e) => setName(e.target.value)} placeholder='* Как к вам обращаться?' value={name}  className="name" required="require" name="userName"  type="text"></input>
+            <input onChange={(e) => setTag(e.target.value)} placeholder='* Ваш тег в телеграме (@examle)' pattern="^@+([a-z0-9_-]{5,100})$" value={tag} className="email" required="require" name="userTag"  type="text"></input>
             </div>
             <div className="yenput">
-           <textarea  onChange={(e) => setUsMessage(e.target.value)} placeholder='Ведите ваше сообщение' value={usMessage}  className="enput" required="require" name="userMessage" rows="8"></textarea>
+           <textarea  onChange={(e) => setUsMessage(e.target.value)} placeholder='* Ведите ваше сообщение' value={usMessage}  className="enput" required="require" name="userMessage" rows="8"></textarea>
             </div>
             <div className="checkbox1">
                 <h4>Я даю согласие на обработку персональных данных</h4>
@@ -205,12 +203,12 @@ function InformationAbDishes(props){
         fetch("https://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'))
             .then(res => res.json())
             .then((result) => 
-            {setProductData((result)); console.log(result)});
+            {setProductData((result));});
     };
     useEffect(() => {
         setImage(downloadImage(props.productType, query.get('category'),query.get('product')));
         InfAbDishesSomething();
-        console.log(data);
+        
         
     }, []);
 
@@ -236,11 +234,11 @@ function InformationAbTea(props){
         fetch("https://china-ya.ru/v1/product/"+props.productType+"?category="+query.get('category')+"&product="+query.get('product'))
             .then(res => res.json())
             .then((result) => 
-            {setProductData((result)); console.log(result)})
+            {setProductData((result));})
     };
     useEffect(() => {
         setImage(downloadImage(props.productType, query.get('category'),query.get('product')));
-        console.log(data);
+        
         InfAbTeaSomething();
     }, []);
      return (
@@ -260,7 +258,7 @@ function Products(props){
             .then(
                 (result) => {
                    let newResult = result;
-                    console.log(newResult);
+                 
                     setProductsData((newResult));
                 })
     };
@@ -286,14 +284,14 @@ function  Catalog(props)   {
 
     const [categoryData, setCategoryData] = useState([]);
     const something =  async () => {
-        console.log(props.urlGenerator);
+      
         fetch(props.urlGenerator())
         
             .then(res => res.json())
             .then(
                 (result) => {
                    let newResult = result;
-                    console.log(newResult);
+                   
                     setCategoryData((newResult));
                 })
               
@@ -321,13 +319,13 @@ function  CatalogDishes(props)   {
 
     const [categoryData, setCategoryData] = useState([]);
     const something =  async () => {
-        console.log(props.urlGenerator);
+       
         fetch(props.urlGenerator())
             .then(res => res.json())
             .then(
                 (result) => {
                    let newResult = result;
-                    console.log(newResult);
+                   
                     setCategoryData((newResult));
                 })
     };
